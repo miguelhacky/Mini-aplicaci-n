@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -5,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 from .servicios import UNIDADES, convertir
 
 app = FastAPI(title="Conversor de unidades")
-templates = Jinja2Templates(directory="app/templates")
+templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
