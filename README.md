@@ -13,6 +13,10 @@ Tema asignado: conversor de unidades (primer apellido: Fajardo).
 
 [Descargar el proyecto completo en ZIP](https://github.com/miguelhacky/Mini-aplicaci-n/archive/refs/heads/main.zip)
 
+## Publicar en Render
+
+El archivo `render.yaml` configura el servicio web automáticamente. En Render se puede elegir **New + → Blueprint** y seleccionar este repositorio.
+
 ## Actividades
 
 1. **Preparación:** carpetas aisladas `mini-app-a` y `mini-app-b`.
