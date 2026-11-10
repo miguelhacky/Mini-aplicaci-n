@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Conversor</title></head>
+<body><main><h1>Conversor de unidades</h1>
+<form id="form"><label>Tipo <select id="tipo"></select></label>
+<label>Valor <input id="valor" type="number" step="any" required></label>
+<label>De <select id="de"></select></label><label>A <select id="a"></select></label>
+<button>Convertir</button></form><p id="resultado"></p></main>
+<script>
+const tipos = {{ unidades | tojson }}; const tipo = document.querySelector('#tipo');
+const de = document.querySelector('#de'); const a = document.querySelector('#a');
+Object.keys(tipos).forEach(t => tipo.add(new Option(t, t)));
+function cargar() { de.replaceChildren(); a.replaceChildren(); tipos[tipo.value].forEach(u => { de.add(new Option(u,u)); a.add(new Option(u,u)); }); }
+tipo.addEventListener('change', cargar); cargar();
+document.querySelector('#form').addEventListener('submit', async e => { e.preventDefault(); const q = new URLSearchParams({tipo:tipo.value, valor:document.querySelector('#valor').value, de:de.value, a:a.value}); const r = await fetch('/api/convertir?'+q); const d = await r.json(); document.querySelector('#resultado').textContent = r.ok ? `Resultado: ${d.resultado}` : d.detail; });
+</script></body></html>
