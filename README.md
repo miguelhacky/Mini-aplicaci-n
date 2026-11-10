@@ -2,6 +2,17 @@
 
 Tema asignado: conversor de unidades (primer apellido: Fajardo).
 
+## Languages
+
+- Python — FastAPI y lógica de conversiones
+- HTML — plantilla de la interfaz
+- JavaScript — interacción del conversor
+- CSS — diseño visual adaptable
+
+## Descargar
+
+[Descargar el proyecto completo en ZIP](https://github.com/miguelhacky/Mini-aplicaci-n/archive/refs/heads/main.zip)
+
 ## Actividades
 
 1. **Preparación:** carpetas aisladas `mini-app-a` y `mini-app-b`.
