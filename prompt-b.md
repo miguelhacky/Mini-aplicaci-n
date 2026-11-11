@@ -1,23 +1,30 @@
 ## Rol
-Actúa como desarrollador backend con experiencia en FastAPI, Jinja2 y pruebas con pytest.
+Actúa como desarrollador backend con experiencia en FastAPI y pruebas con pytest.
+
 ## Objetivo
-Construir la mini-aplicación web Conversor de unidades con estos requisitos:
-1. GET / muestra un formulario para elegir el tipo de medida, el valor y las unidades de origen y de destino, y muestra el resultado sin recargar la página.
-2. GET /api/convertir recibe tipo, valor, de y a, y devuelve {"resultado": número}, redondeado a 4 decimales.
-3. Tipos y unidades: temperatura (C, F, K), longitud (mm, cm, m, km) y masa (g, kg, lb).
-4. Si el tipo o una unidad no son válidos, o si las unidades no corresponden al tipo, responde 400 con un mensaje en detail.
+Agrega el endpoint GET /api/unidades para devolver los tipos de medida y sus unidades disponibles.
+
 ## Contexto
-Lee AGENTS.md. El contrato está en tests/test_aceptacion.py: rutas, nombres de campos y estados deben coincidir.
+Lee AGENTS.md, app/main.py, app/servicios.py y tests/test_aceptacion.py.
+
 ## Restricciones
-- Usa solo requirements.txt.
-- Define rutas en app/main.py y lógica en app/servicios.py, sin importar FastAPI en servicios.
-- No uses base de datos ni archivos para guardar datos.
 - No modifiques tests/test_aceptacion.py.
-- Usa HTML, CSS y JavaScript sin librerías externas.
+- No uses base de datos.
+- Mantén la estructura actual del proyecto.
+- Agrega una prueba en tests/test_mejora.py.
+- La página debe usar el endpoint para cargar las unidades.
+
 ## Formato de salida
-Antes de escribir código, muestra el plan con las rutas completas y espera aprobación. Al terminar resume cada archivo.
+Primero muestra un plan con los archivos que modificarás. Espera mi aprobación antes de escribir código.
+
 ## Ejemplo
-GET /api/convertir?tipo=temperatura&valor=100&de=C&a=F devuelve {"resultado": 212.0}.
-GET /api/convertir?tipo=masa&valor=1&de=kg&a=lb devuelve {"resultado": 2.2046}.
+GET /api/unidades devuelve:
+
+{
+  "temperatura": ["C", "F", "K"],
+  "longitud": ["mm", "cm", "m", "km"],
+  "masa": ["g", "kg", "lb"]
+}
+
 ## Criterio de éxito
-python -m pytest -v pasa todas las pruebas y ruff check . no reporta errores. Tras 3 intentos fallidos, detente y explica.
+python -m pytest -v pasa todas las pruebas y ruff check . no reporta errores.
